@@ -1,8 +1,10 @@
 import { RotatingSquare } from 'react-loader-spinner'
+import s from './Loader.module.css'
 
 const Loader = () => {
-    return (
-       <RotatingSquare
+  return (
+    <div className={s.loaderWrapper}>
+      <RotatingSquare
        visible={true}
        height="100"
        width="100"
@@ -11,6 +13,8 @@ const Loader = () => {
        wrapperStyle={{}}
        wrapperClass=""
   />
+      </div>
+      
     )
 }
 

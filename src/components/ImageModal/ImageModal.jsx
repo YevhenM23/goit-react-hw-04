@@ -1,21 +1,24 @@
-import { useState } from "react";
 import Modal from 'react-modal';
+import s from './ImageModal.module.css'
 
+const ImageModal = ({photo, closeModal}) => {
 
-const ImageModal = ({photo}) => {
-    const [modalIsOpen, setIsOpen] = useState(false);
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
     return (
-        <div>   
     <Modal
-        isOpen={modalIsOpen}
+        isOpen={!!photo}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
+        className={s.modalContent}
+        overlayClassName={s.modalOverlay} 
             >
-        <button onClick={closeModal}>x</button>
+             {photo && (
+        <img
+          src={photo.urls.full}
+          alt={photo.description}
+          className={s.modalImage} 
+        />
+      )}
     </Modal>
-    </div>
+    
     )
 }
 
